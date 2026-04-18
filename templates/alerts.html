@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:white;font-family:monospace;">
+
+<h1>Alerts</h1>
+
+<input id="search" placeholder="search...">
+<select id="filter">
+<option>ALL</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option>
+</select>
+
+{% for a in alerts %}
+<p class="alert">{{a}}</p>
+{% endfor %}
+
+<script>
+const s=document.getElementById("search");
+const f=document.getElementById("filter");
+
+function run(){
+document.querySelectorAll(".alert").forEach(e=>{
+let t=e.innerText.toLowerCase();
+e.style.display=(t.includes(s.value.toLowerCase()) &&
+(f.value=="ALL"||t.includes(f.value.toLowerCase())))?"block":"none";
+});
+}
+s.oninput=run;f.onchange=run;
+</script>
+
+</body>
+</html>

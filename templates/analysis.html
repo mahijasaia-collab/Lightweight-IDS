@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Advanced Analysis</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="{{ url_for('static', filename='script.js') }}"></script>
+
+<style>
+body {
+    background:#020617;
+    color:white;
+    font-family:sans-serif;
+}
+.main {
+    margin-left:240px;
+    padding:20px;
+}
+.card {
+    background:#0f172a;
+    padding:20px;
+    margin:20px;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+<h1>📊 Advanced Threat Analysis</h1>
+
+<div class="card"><canvas id="lineChart"></canvas></div>
+<div class="card"><canvas id="barChart"></canvas></div>
+<div class="card"><canvas id="pieChart"></canvas></div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IDS Cyber Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="{{ url_for('static', filename='script.js') }}"></script>
+
+<style>
+body {
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:white;
+}
+
+/* Sidebar */
+.sidebar {
+    position:fixed;
+    width:230px;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-right:1px solid #22c55e;
+}
+.sidebar h2 { color:#22c55e; }
+.sidebar a {
+    color:#22c55e;
+    display:block;
+    margin:15px 0;
+    text-decoration:none;
+}
+.sidebar a:hover { color:white; }
+
+/* Main */
+.main {
+    margin-left:250px;
+    padding:20px;
+}
+
+/* Cards */
+.card {
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    padding:20px;
+    border-radius:15px;
+    margin:15px 0;
+    box-shadow:0 0 20px rgba(34,197,94,0.2);
+}
+
+/* Grid */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* Terminal */
+.terminal {
+    background:black;
+    color:#22c55e;
+    height:200px;
+    overflow:auto;
+    padding:10px;
+    font-size:14px;
+}
+
+/* Glow */
+.glow {
+    text-shadow:0 0 10px #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>🛡 IDS</h2>
+<a href="/">Dashboard</a>
+<a href="/alerts">Alerts</a>
+<a href="/analysis">Analysis</a>
+<a href="/about">About</a>
+</div>
+
+<div class="main">
+
+<h1 class="glow">⚡ Cyber Threat Dashboard</h1>
+
+<button onclick="toggle()">Start / Stop</button>
+
+<div class="grid">
+<div class="card">🔴 High <h2 id="highCount"></h2></div>
+<div class="card">🟠 Medium <h2 id="mediumCount"></h2></div>
+<div class="card">🟡 Low <h2 id="lowCount"></h2></div>
+</div>
+
+<div class="card">
+Total Alerts: <span id="total"></span> |
+High %: <span id="percent"></span>
+</div>
+
+<div class="card">
+<canvas id="lineChart"></canvas>
+</div>
+
+<div class="grid">
+<div class="card"><canvas id="barChart"></canvas></div>
+<div class="card"><canvas id="pieChart"></canvas></div>
+</div>
+
+<div class="card">
+<h3>🌍 Suspicious IPs</h3>
+<div id="ipBox"></div>
+</div>
+
+<div class="card">
+<h3>💻 Live Terminal</h3>
+<div id="alertsBox" class="terminal"></div>
+</div>
+
+</div>
+</body>
+</html>
