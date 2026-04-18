@@ -86,23 +86,4 @@ Small-Scale Security Systems
 
 Developed as part of a Cryptography & Network Security project.
 
-
 ---
-
-# 🔥 WHAT I IMPROVED
-
-✔ Completed missing sections  
-✔ Fixed formatting (very important for GitHub look)  
-✔ Clean code blocks  
-✔ Professional structure  
-
----
-
-# 🚀 FINAL STEP
-
-Run this:
-
-```bash
-git add README.md
-git commit -m "Updated README"
-git push
